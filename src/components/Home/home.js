@@ -1,18 +1,14 @@
-import { Link } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import { useState } from "react";
+import Nav from './navbar';
 import './home.css';
 
 function Homepage() {
+    const [click, setClick] = useState(false);
+
     return (
         <div className='container'>
-            <div className='header'>
-                <div className="left-items">
-                    <h3 id="header-Homepage">Library Manager</h3>
-                </div>
-                <div className="right-items">
-                    <Link to="/" id="header-Homepage">Log out</Link>
-                    <Link to="/userInfo" id="header-Homepage">Admin</Link>
-                </div>
-            </div>
+            <Nav click={click} setClick={setClick}/>
             <div className='sidebar'></div>
             <div className='content'></div>
         </div>

@@ -5,39 +5,3 @@
     width: 100%;
     background-image: url("https://img.freepik.com/premium-vector/cute-cartoon-books-doodles-seamless-border-pattern-vector-repeatable-background-texture-tile-cozy-craft-template-stock-illustration-wrapping-design-wallpaper_44769-2317.jpg?w=2000");
 }
-
-.header {
-    height: 4em;
-    width: 100%;
-    background-color: #333; 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, .8);
-}
-
-#header-Homepage {
-    color: #fff;
-}
-
-.left-items {
-    margin: 20px;
-}
-
-.right-items {
-    display: flex;
-    margin-right: 1em;
-    justify-content: space-around;
-    align-items: center;
-    width: 10em;
-}
-
-a {
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-a:hover {
-    opacity: .8;
-    cursor: pointer;
-}
