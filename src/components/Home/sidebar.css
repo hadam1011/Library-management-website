@@ -1,0 +1,43 @@
+.sidebar {
+    height: 100vh;
+    width: 14em;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: slide-in ease .3s;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-14em);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+.sidebar-options {
+    padding: 0;
+    width: 14em;
+    position: absolute;
+    top: 4em;
+}
+
+.op-box {
+    display: block;
+    border-bottom: 1px solid #fff;
+}
+
+li {
+    font-size: 1.3em;
+    color: #fff;
+    list-style: none;
+    padding: 0.35em 0;
+    margin-left: 0.5em;
+}
+
+li:first-child {
+    padding: 0.7em 0 0.35em 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}

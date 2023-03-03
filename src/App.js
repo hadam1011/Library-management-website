@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginForm setUser={setUserName} />} />
-      <Route path={`/Homepage/${username}`} element={<HomePage />} />
+      <Route path={`/Homepage/${username}`} element={<HomePage username={username} />} />
     </Routes>
   );
 }
