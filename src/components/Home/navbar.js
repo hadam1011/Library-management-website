@@ -15,7 +15,7 @@ function Nav({click, setClick}) {
             </div>
             <div className="right-items">
                 <Link to="/" id="header-Homepage">Log out</Link>
-                <Link to="/userInfo" id="header-Homepage">Admin</Link>
+                <Link to="/Homepage/userInfo" id="header-Homepage">Admin</Link>
             </div>
         </div>  
     );

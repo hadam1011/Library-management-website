@@ -12,17 +12,17 @@ function SideBar({user}) {
                 </div>
                 <div className="op-box">
                     <li>
-                        <Link to="search">Search</Link>
+                        <Link to="/search">Search</Link>
                     </li>
                 </div>
                 <div className="op-box">
                     <li>
-                        <Link to="book-management">Book Management</Link>
+                        <Link to="/book-management">Book Management</Link>
                     </li>
                 </div>
                 <div className="op-box">
                     <li>
-                        <Link to="add-manager">Add Manager</Link>
+                        <Link to="/add-manager">Add Manager</Link>
                     </li>
                 </div>
             </ul>
