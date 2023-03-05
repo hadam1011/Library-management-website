@@ -9,14 +9,23 @@ function Homepage({username}) {
     const [click, setClick] = useState(false);
     let location = useLocation();
 
-    const checkLocation = (location.pathname === "/Homepage/") ? true : false;
+    const moveRight = document.querySelector(':root');
+    const checkLocation = (location.pathname === "/Homepage") ? true : false;
+
+    if (click) {
+        moveRight.style.setProperty('--moveRight', '14.5em');
+    } else {
+        moveRight.style.setProperty('--moveRight', '7.5em');
+    }
     
     return (
-        <div className='container'>
+        <div className='home-container'>
             <Nav click={click} setClick={setClick} />
             {click && <SideBar user={username} />}
-            {checkLocation && <Content />}
-            <Outlet />
+            <div className="content-container">
+                {checkLocation && <Content />}
+                <Outlet />
+            </div>
         </div>
     );
 }

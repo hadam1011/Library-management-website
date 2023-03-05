@@ -5,5 +5,14 @@
             "username": "admin",
             "password": "123"
         }
+    ],
+    "books": [
+        {
+            "id": 1,
+            "name": "Cho tôi xin một vé đi tuổi thơ",
+            "author": "Nguyễn Nhật Ánh",
+            "category": "Tiểu thuyết",
+            "remain": 5
+        }
     ]
 }

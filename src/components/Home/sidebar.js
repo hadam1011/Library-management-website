@@ -7,7 +7,7 @@ function SideBar({user}) {
             <ul className="sidebar-options">
                 <div className="op-box">
                     <li>
-                        <Link to={`/Homepage/${user}`}>Home</Link>
+                        <Link to={`/Homepage`}>Home</Link>
                     </li>
                 </div>
                 <div className="op-box">
