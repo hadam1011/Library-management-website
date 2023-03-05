@@ -1,17 +1,6 @@
-import { useState, useEffect } from 'react';
 import './content.css';
 
-function Content() {
-    const [bookList, setBookList] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/books')
-          .then(res => res.json())
-          .then(list => {
-            setBookList(list);
-          }) 
-    }, [])
-    
+function Content({bookList}) {
     return (
         <div className="content">   
             <table>
@@ -25,7 +14,15 @@ function Content() {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {bookList.map((book) => (
+                        <tr key={book.id}>
+                            <td>{book.id}</td>
+                            <td>{book.name}</td>
+                            <td>{book.author}</td>
+                            <td>{book.category}</td>
+                            <td>{book.remain}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
