@@ -13,6 +13,13 @@
             "author": "Nguyễn Nhật Ánh",
             "category": "Tiểu thuyết",
             "remain": 5
+        },
+        {
+            "id": 2,
+            "name": "Nhà giả kim",
+            "author": "Paulo Coelho",
+            "category": "Tiểu thuyết",
+            "remain": 12
         }
     ]
 }
