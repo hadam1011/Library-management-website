@@ -28,7 +28,7 @@ function LoginForm({ setUser }) {
 
     if (success) {
       setUser(username);
-      navigate("/Homepage");
+      navigate("/home-page");
     } else {
       alert('Sai thong tin hoac mat khau');
     }

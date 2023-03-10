@@ -1,31 +1,46 @@
+import { Table} from 'antd'
 import './content.css';
 
-function Content({bookList}) {
+
+function Content({ bookList }) {
+    const columns = [
+        {
+            title: 'Name',
+            dataIndex: 'name'
+        },
+        {
+            title: 'Author',
+            dataIndex: 'author'
+        },
+        {
+            title: 'Category',
+            dataIndex: 'category'
+        },
+        {
+            title: 'Remain',
+            dataIndex: 'remain'
+        }
+    ]
+
     return (
-        <div className="content">   
-            <table>
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Remain</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {bookList.map((book) => (
-                        <tr key={book.id}>
-                            <td>{book.id}</td>
-                            <td>{book.name}</td>
-                            <td>{book.author}</td>
-                            <td>{book.category}</td>
-                            <td>{book.remain}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+        <>
+            <Table
+                columns={columns}
+                expandable={{
+                    expandedRowRender: (record) => (
+                      <p
+                        style={{
+                          margin: 0,
+                        }}
+                      >
+                        {record.description}
+                      </p>
+                    ),
+                    rowExpandable: (record) => record.name !== 'Not Expandable',
+                  }}
+                dataSource={bookList}
+            />
+        </>
     );
 }
 
