@@ -1,38 +1,30 @@
 {
-    "user": [
-        {
-            "key": 1,
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "books": [
-        {
-            "key": 1,
-            "name": "Cho tôi xin một vé đi tuổi thơ",
-            "author": "Nguyễn Nhật Ánh",
-            "category": "Tiểu thuyết",
-            "remain": 5,
-            "description": "Cho Tôi Xin Một Vé Đi Tuổi Thơ” là tập truyện dài đã vô cùng quen thuộc với nhiều người của nhà văn nổi tiếng Nguyễn Nhật Ánh. Bởi tính nhân văn sâu sắc trong nó, đây được coi là một trong những sáng tác thành công nhất của ông và giúp ông giành được Giải thưởng Văn học ASEAN năm 2010." ,
-            "img": "https://upload.wikimedia.org/wikipedia/vi/c/c9/Cho_t%C3%B4i_xin_m%E1%BB%99t_v%C3%A9_%C4%91i_tu%E1%BB%95i_th%C6%A1.jpg"
-        },
-        {
-            "key": 2,
-            "name": "Nhà giả kim",
-            "author": "Paulo Coelho",
-            "category": "Tiểu thuyết",
-            "remain": 12,
-            "description": "Những thứ vào miệng con người không độc hại, xấu xa. Xấu xa, độc hại là những gì từ miệng họ tuôn ra. Nếu cậu hiểu rõ trái tim mình thì sẽ không xảy ra điều gì bất trắc đâu, vì cậu biết rõ nó mơ ước gì và biết phải ứng xử như thế nào. Không ai trốn tránh được trái tim mình thành ra nên lắng nghe nó nói là hay hơn cả. Như thế cậu sẽ không bao giờ bị đánh bất ngờ.",
-            "img": "https://eccthai.com/wp-content/uploads/2021/03/nha-gia-kim.jpg"
-        },
-        {
-            "key": 3,
-            "name": "Nobita va nhung dung si co canh",
-            "author":"Paulo Coelho",
-            "category": "Truyen tranh",
-            "remain": 20,
-            "description": "doraemon",
-            "img": "https://product.hstatic.net/200000343865/product/21_cb2066a647db41ddbc07ef55c15cd04c_master.jpg"
-        }
-    ]
+  "user": [
+    {
+      "id": 1,
+      "key": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "key": 1,
+      "name": "Sach 1",
+      "author": "Ha",
+      "category": "Truyen",
+      "remain": 5,
+      "description": "hahaaha"
+    },
+    {
+      "id": 2,
+      "key": 2,
+      "name": "Sach 1",
+      "author": "Ha",
+      "category": "Truyen",
+      "remain": 5,
+      "description": "hahaaha"
+    }
+  ]
 }
