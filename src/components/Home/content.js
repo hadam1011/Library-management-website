@@ -52,13 +52,6 @@ const Contents = () => {
   }
 
   useEffect(() => {
-    async function fetchData() {
-      await fetch("http://localhost:3000/books")
-        .then((res) => res.json())
-        .then((list) => {
-          setBookList(list);
-        });
-    }
     fetchData();
   }, []);
 
