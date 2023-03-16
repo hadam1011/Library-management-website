@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Breadcrumb, Layout, Avatar } from "antd";
-import { UserOutlined } from '@ant-design/icons';
+import { Layout, Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 import SideBar from "../../components/Home/sidebar";
@@ -20,7 +20,7 @@ function HomePage({ username }) {
       <Layout>
         <Header className="header">
           <div className="logo">
-            <h3>Library Manager</h3>  
+            <h3>Library Manager</h3>
           </div>
           <div className="user-avatar">
             <Avatar size="large" icon={<UserOutlined />} />
@@ -35,15 +35,6 @@ function HomePage({ username }) {
               padding: "0 24px 24px",
             }}
           >
-            <Breadcrumb
-              style={{
-                margin: "16px 0",
-              }}
-            >
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
             <Content
               style={{
                 padding: 24,
@@ -51,7 +42,7 @@ function HomePage({ username }) {
                 minHeight: 280,
               }}
             >
-              {checkLocation && <Contents />}     
+              {checkLocation && <Contents />}
               <Outlet />
             </Content>
           </Layout>

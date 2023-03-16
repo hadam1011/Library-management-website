@@ -36,7 +36,8 @@ const EditableCell = ({
     </td>
   );
 };
-const App = () => {
+
+const Contents = () => {
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
   const [bookList, setBookList] = useState([]);
@@ -61,7 +62,7 @@ const App = () => {
     fetchData();
   }, []);
 
-  const isEditing = (record) => record.key === editingKey;
+  const isEditing = (record) => record.id === editingKey;
   const edit = (record) => {
     form.setFieldsValue({
       name: "",
@@ -70,7 +71,7 @@ const App = () => {
       remain: 0,
       ...record,
     });
-    setEditingKey(record.key);
+    setEditingKey(record.id);
   };
 
   function handleUpdate(id, data) {
@@ -186,6 +187,7 @@ const App = () => {
       },
     },
   ];
+  
   const mergedColumns = columns.map((col) => {
     if (!col.editable) {
       return col;
@@ -201,6 +203,7 @@ const App = () => {
       }),
     };
   });
+
   return (
     <Form form={form} component={false}>
       <Table
@@ -220,10 +223,10 @@ const App = () => {
           expandedRowRender: (record) => (
             <p style={{ margin: 0 }}>{record.description}</p>
           ),
-          rowExpandable: (record) => record.name !== "Not Expandable",
         }}
       />
     </Form>
   );
 };
-export default App;
+
+export default Contents;

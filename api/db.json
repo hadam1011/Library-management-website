@@ -2,47 +2,45 @@
   "user": [
     {
       "id": 1,
-      "key": 1,
       "username": "admin",
       "password": "123"
     },
     {
-      "id": 1,
-      "key": 1,
-      "name": "Ha",
-      "author": "HA",
-      "category": "ga",
-      "remain": 5,
-      "description": "hahaaha"
-    },
-    {
-      "id": 2,
-      "key": 2,
-      "name": "Ha",
-      "author": "HA",
-      "category": "ga",
-      "remain": 5,
-      "description": "hahaaha"
+      "name": "Đời thay đổi khi chúng ta thay đổi - Tập 1",
+      "author": "Andrew Matthews",
+      "category": "Kỹ năng sống",
+      "remain": 0,
+      "description": "Quyển sách này nói về việc tại sao có những người dường như lúc nào cũng ở đúng nơi và đúng lúc - và làm thế nào bạn cũng được như họ; tại sao hóa đơn tính tiền luôn luôn tới ngay tức khắc; tại sao đèn giao thông cứ ở màu đỏ hoài cả nửa ngày trong khi bạn đang trễ một cuộc hẹn làm ăn; tại sao đi du lịch Tây Ban Nha mà bạn cũng gặp người láng giềng sát bên nhà; tại sao bạn chạy chiếc xe cà tàng suốt 15 năm ròng rã mà chưa bao giờ va quẹt... thế rồi chiếc xe mới mua mới chạy có hai ngày đã đụng móp mui! Quyển sách này nói về: hiểu được bản thân, biết khôi hài về bản thân, trở nên suôn sẻ thuận lợi, biết tha thứ cho bản thân. Sách cũng bàn về việc nhận thức được các quy luật tự nhiên để chúng ta có thể điều chỉnh bản tính chúng ta tốt hơn. Đây là quyển sách nói về làm thế nào để được hạnh phúc.",
+      "id": 3
     }
   ],
   "books": [
     {
       "id": 1,
       "key": 1,
-      "name": "Haaaaadffffffdfadddaaaaaaaaaaa",
-      "author": "HA",
-      "category": "agdgasdgffffffffffffffffffffffffffffffffffffffffffffff",
-      "remain": 3,
-      "description": "hahaaha"
+      "name": "Cho tôi xin 1 vé về tuổi thơ",
+      "author": "Nguyễn Nhật Ánh",
+      "category": "Truyện",
+      "remain": 45,
+      "description": "Tác phẩm gồm những câu chuyện nhỏ xoay xung quanh 4 đứa trẻ trong cùng một khu xóm là con Tủn, con Tí sún, thằng Hải cò và thằng cu Mùi. Trong đó, người kể chuyện là cu Mùi dưới hình thức kể của thằng cu Mùi lúc bé và nhận xét, đánh giá của ông Mùi khi đã gần 50 tuổi."
     },
     {
       "id": 2,
       "key": 2,
-      "name": "Duong",
-      "author": "HA",
-      "category": "ga",
-      "remain": 1,
-      "description": "hahaaha"
+      "name": "Nhà giả kim",
+      "author": "Paulo Coelho",
+      "category": "Tiểu thuyết",
+      "remain": 19,
+      "description": "Nhà Giả Kim là câu chuyện được xoay quanh cậu bé chăn cừu có tên Santiago trong chuyến hành trình đi tìm kho báu của mình. Cuộc hành trình này đã giúp cậu nhận ra nhiều bài học trong cuộc sống cũng như mục đích và ý nghĩa cuộc đời mình. "
+    },
+    {
+      "name": "Đời thay đổi khi chúng ta thay đổi - Tập 1",
+      "author": "Andrew Matthews",
+      "category": "Kỹ năng sống",
+      "remain": 0,
+      "description": "Quyển sách này nói về việc tại sao có những người dường như lúc nào cũng ở đúng nơi và đúng lúc - và làm thế nào bạn cũng được như họ; tại sao hóa đơn tính tiền luôn luôn tới ngay tức khắc; tại sao đèn giao thông cứ ở màu đỏ hoài cả nửa ngày trong khi bạn đang trễ một cuộc hẹn làm ăn; tại sao đi du lịch Tây Ban Nha mà bạn cũng gặp người láng giềng sát bên nhà; tại sao bạn chạy chiếc xe cà tàng suốt 15 năm ròng rã mà chưa bao giờ va quẹt... thế rồi chiếc xe mới mua mới chạy có hai ngày đã đụng móp mui! Quyển sách này nói về: hiểu được bản thân, biết khôi hài về bản thân, trở nên suôn sẻ thuận lợi, biết tha thứ cho bản thân. Sách cũng bàn về việc nhận thức được các quy luật tự nhiên để chúng ta có thể điều chỉnh bản tính chúng ta tốt hơn. Đây là quyển sách nói về làm thế nào để được hạnh phúc.",
+      "id": 3,
+      "key": 3
     }
   ]
 }
