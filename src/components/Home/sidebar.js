@@ -1,28 +1,54 @@
-import { Link } from 'react-router-dom';
-import './sidebar.css';
+import {
+  ContainerOutlined,
+  MenuFoldOutlined,
+  PieChartOutlined,
+  DesktopOutlined,
+  MenuUnfoldOutlined,
+} from "@ant-design/icons";
+import { Button, Menu } from "antd";
+import './sidebar.css'
 
-function SideBar({user}) {
-    return (
-        <div className="sidebar">
-            <ul className="sidebar-options">
-                <div className="op-box">
-                    <li>
-                        <Link to={`/home-page`}>Home</Link>
-                    </li>
-                </div>
-                <div className="op-box">
-                    <li>
-                        <Link to="/search">Search</Link>
-                    </li>
-                </div>
-                <div className="op-box">
-                    <li>
-                        <Link to="/add-manager">Add Manager</Link>
-                    </li>
-                </div>
-            </ul>
-        </div>
-    );
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+const items = [
+  getItem("Option 1", "1", <PieChartOutlined />),
+  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem("Option 3", "3", <ContainerOutlined />),
+];
+
+function SideBar({ collapsed, setCollapsed }) {
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  return (
+    <div>
+      <Button
+        type="primary"
+        onClick={toggleCollapsed}
+        style={{
+          marginBottom: 16,
+        }}
+      >
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </Button>
+      <Menu
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        mode="inline"
+        theme="dark"
+        items={items}
+      />
+    </div>
+  );
 }
 
 export default SideBar;

@@ -5,26 +5,32 @@
       "key": 1,
       "username": "admin",
       "password": "123"
-    }
-  ],
-  "books": [
+    },
     {
       "id": 1,
       "key": 1,
-      "name": "Sach 1",
-      "author": "Ha",
-      "category": "Truyen",
-      "remain": 5,
-      "description": "hahaaha"
+      "name": "Ha",
+      "author": "HA",
+      "category": "ga",
+      "remain": 5
     },
     {
       "id": 2,
       "key": 2,
-      "name": "Sach 1",
-      "author": "Ha",
-      "category": "Truyen",
-      "remain": 5,
-      "description": "hahaaha"
+      "name": "Ha",
+      "author": "HA",
+      "category": "ga",
+      "remain": 5
+    }
+  ],
+  "books": [
+    {
+      "id": 2,
+      "key": 2,
+      "name": "Duong",
+      "author": "HA",
+      "category": "ga",
+      "remain": 1
     }
   ]
 }

@@ -1,22 +1,16 @@
-:root {
-    --moveRight: 14.5em;
-}
-
 .home-container {
     position: relative;
     margin: 0;
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
-    background-image: url("https://img.freepik.com/premium-vector/cute-cartoon-books-doodles-seamless-border-pattern-vector-repeatable-background-texture-tile-cozy-craft-template-stock-illustration-wrapping-design-wallpaper_44769-2317.jpg?w=2000");
 }
 
-.home-container-content {
-    position: absolute;
-    width: calc(100% - 15em);
-    height: calc(100% - 5em);
-    left: var(--moveRight);
-    top: 4.5em;
-    background-color: #fff;
-    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+section {
+    height: 100vh;
+    width: 100%;
+}
+
+section .ant-layout {
+    height: calc(100vh - 64px);
 }

@@ -1,33 +1,63 @@
-import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Nav from '../../components/Home/navbar';
+import { Breadcrumb, Layout, Menu } from "antd";
+import { useState } from "react";
+
+import Nav from "../../components/Home/navbar";
 import SideBar from "../../components/Home/sidebar";
-import Content from "../../components/Home/content";
-import './home.css';
+import Contents from "../../components/Home/content2";
+import "./home.css";
 
-function HomePage({username}) {
-    const [click, setClick] = useState(false);
-    let location = useLocation();
+const { Header, Content, Sider } = Layout;
 
-    const moveRight = document.querySelector(':root');
-    const checkLocation = (location.pathname === "/home-page") ? true : false;
+function HomePage({ username }) {
+  let location = useLocation();
+  const checkLocation = location.pathname === "/home-page" ? true : false;
 
-    if (click) {
-        moveRight.style.setProperty('--moveRight', '14.5em');
-    } else {
-        moveRight.style.setProperty('--moveRight', '7.5em');
-    }
-    
-    return (
-        <div className='home-container'>
-            <Nav click={click} setClick={setClick} />
-            {click && <SideBar user={username} />}
-            <div className="home-container-content">
-                {checkLocation && <Content />}
-                <Outlet />
-            </div>
-        </div>
-    );
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <div className="home-container">
+      <Layout>
+        <Header className="header">
+          <div className="logo" />
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            // items={items1}
+          />
+        </Header>
+        <Layout>
+          <Sider collapsed={collapsed}>
+            <SideBar collapsed={collapsed} setCollapsed={setCollapsed} />
+          </Sider>
+          <Layout
+            style={{
+              padding: "0 24px 24px",
+            }}
+          >
+            <Breadcrumb
+              style={{
+                margin: "16px 0",
+              }}
+            >
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <Content
+              style={{
+                padding: 24,
+                margin: 0,
+                minHeight: 280,
+              }}
+            >
+              <Outlet />
+            </Content>
+          </Layout>
+        </Layout>
+      </Layout>
+    </div>
+  );
 }
 
 export default HomePage;
