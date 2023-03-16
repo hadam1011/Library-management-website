@@ -14,3 +14,25 @@ section {
 section .ant-layout {
     height: calc(100vh - 64px);
 }
+
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.logo h3 {
+    color: #fff;
+    padding-left: 1em;
+    font-size: 1.3em;
+}
+
+.user-avatar {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.ant-avatar:hover {
+    cursor: pointer;
+}

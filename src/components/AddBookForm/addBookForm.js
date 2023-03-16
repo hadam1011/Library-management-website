@@ -1,11 +1,11 @@
 import React from "react";
-import "./addBookForm.css";
 import { Button, Form, Input, InputNumber, Select } from "antd";
+
 const { TextArea } = Input;
 
-const FormAddBook = () => {
+const AddBookForm = () => {
   return (
-    <div className="update-form">
+    <>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
@@ -30,8 +30,8 @@ const FormAddBook = () => {
           <Button>Button</Button>
         </Form.Item>
       </Form>
-    </div>
+    </>
   );
 };
 
-export default FormAddBook;
+export default AddBookForm;

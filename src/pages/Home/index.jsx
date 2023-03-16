@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Breadcrumb, Layout, Avatar } from "antd";
+import { UserOutlined } from '@ant-design/icons';
 import { useState } from "react";
 
-import Nav from "../../components/Home/navbar";
 import SideBar from "../../components/Home/sidebar";
-import Contents from "../../components/Home/content2";
+import Contents from "../../components/Home/content";
 import "./home.css";
 
 const { Header, Content, Sider } = Layout;
@@ -19,12 +19,12 @@ function HomePage({ username }) {
     <div className="home-container">
       <Layout>
         <Header className="header">
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            // items={items1}
-          />
+          <div className="logo">
+            <h3>Library Manager</h3>  
+          </div>
+          <div className="user-avatar">
+            <Avatar size="large" icon={<UserOutlined />} />
+          </div>
         </Header>
         <Layout>
           <Sider collapsed={collapsed}>
@@ -51,6 +51,7 @@ function HomePage({ username }) {
                 minHeight: 280,
               }}
             >
+              {checkLocation && <Contents />}     
               <Outlet />
             </Content>
           </Layout>

@@ -1,11 +1,12 @@
 import {
-  ContainerOutlined,
   MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
+  HomeOutlined,
   MenuUnfoldOutlined,
+  UserOutlined,
+  BookOutlined
 } from "@ant-design/icons";
 import { Button, Menu } from "antd";
+import { useNavigate } from "react-router-dom";
 import './sidebar.css'
 
 function getItem(label, key, icon, children, type) {
@@ -19,15 +20,27 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Option 3", "3", <ContainerOutlined />),
+  getItem("Home", "1", <HomeOutlined />),
+  getItem("Add Book", "2", <BookOutlined />),
+  getItem("User Management", "3", <UserOutlined />),
 ];
 
 function SideBar({ collapsed, setCollapsed }) {
+  const navigate = useNavigate();
+
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+
+  function handleClickItems(item) {
+    if (item.key === "1") {
+      navigate("/home-page");
+    } else if (item.key === "2") {
+      navigate("/home-page/add-book");
+    } else if (item.key === "3") {
+      navigate("/home-page/user-management");
+    }
+  }
 
   return (
     <div>
@@ -45,6 +58,7 @@ function SideBar({ collapsed, setCollapsed }) {
         defaultOpenKeys={["sub1"]}
         mode="inline"
         theme="dark"
+        onClick={(item) => handleClickItems(item)}
         items={items}
       />
     </div>
