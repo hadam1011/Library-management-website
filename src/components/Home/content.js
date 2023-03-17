@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, InputNumber, Popconfirm, Table, Typography, Input, Space } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Form, InputNumber, Popconfirm, Table, Typography, Input, Space, notification} from "antd";
+import { DeleteOutlined, EditOutlined, SmileOutlined } from "@ant-design/icons";
 
 const EditableCell = ({
   editing,
@@ -41,6 +41,7 @@ const Contents = () => {
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
   const [bookList, setBookList] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
 
   // call API to get book list
   async function fetchData() {
@@ -56,6 +57,7 @@ const Contents = () => {
   }, []);
 
   const isEditing = (record) => record.id === editingKey;
+
   const edit = (record) => {
     form.setFieldsValue({
       name: "",
@@ -84,6 +86,12 @@ const Contents = () => {
         });
     }
     fetchUpdate();
+    
+    api['success']({
+      message: "Update success",
+      description:
+        "The data has been successfully updated",
+    });
   }
 
   const cancel = () => {
@@ -199,6 +207,7 @@ const Contents = () => {
 
   return (
     <Form form={form} component={false}>
+      {contextHolder}
       <Table
         components={{
           body: {
