@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Form, Input, InputNumber } from "antd";
+import { Button, Form, Input, InputNumber, notification } from "antd";
 
 const { TextArea } = Input;
 
@@ -11,6 +11,7 @@ const AddBookForm = () => {
   const [category, setCategory] = useState("");
   const [remain, setRemain] = useState(0);
   const [description, setDescription] = useState("");
+  const [api, contextHolder] = notification.useNotification();
 
   const [bookList, setBookList] = useState([]);
 
@@ -40,6 +41,13 @@ const AddBookForm = () => {
         .then();
     }
     fetchCreate();
+
+    // create notification
+    api['success']({
+      message: "Created",
+      description:
+        "New data has been successfully created",
+    });
   }
 
   var data = {
@@ -58,6 +66,7 @@ const AddBookForm = () => {
         layout="horizontal"
         style={{ maxWidth: 600 }}
       >
+        {contextHolder}
         <Form.Item label="Name">
           <Input onChange={(e) => setBookName(e.target.value)}/>
         </Form.Item>

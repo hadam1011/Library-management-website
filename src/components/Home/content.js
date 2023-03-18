@@ -127,6 +127,13 @@ const Contents = () => {
         });
     }
     fetchDelete();
+
+    // delete notification
+    api['success']({
+      message: "Deleted",
+      description:
+        "The data has been successfully deleted",
+    });
   }
 
   const columns = [
@@ -135,6 +142,7 @@ const Contents = () => {
       dataIndex: "name",
       key: "name",
       editable: true,
+      sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: "Author",
@@ -153,6 +161,7 @@ const Contents = () => {
       dataIndex: "remain",
       editable: true,
       key: "remain",
+      sorter: (a, b) => a.remain - b.remain,
     },
     {
       title: "Action",
