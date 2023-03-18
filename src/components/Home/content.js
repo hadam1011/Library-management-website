@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, InputNumber, Popconfirm, Table, Typography, Input, Space, notification} from "antd";
-import { DeleteOutlined, EditOutlined, SmileOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 const EditableCell = ({
   editing,
@@ -87,8 +87,9 @@ const Contents = () => {
     }
     fetchUpdate();
     
+    // update notification
     api['success']({
-      message: "Update success",
+      message: "Updated",
       description:
         "The data has been successfully updated",
     });

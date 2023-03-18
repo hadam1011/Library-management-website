@@ -6,7 +6,8 @@ import {
   BookOutlined
 } from "@ant-design/icons";
 import { Button, Menu } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import './sidebar.css'
 
 function getItem(label, key, icon, children, type) {
@@ -27,6 +28,18 @@ const items = [
 
 function SideBar({ collapsed, setCollapsed }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  let currentKey = '1';
+
+  function checkLocation() {
+    if (location.pathname === '/home-page') {
+      currentKey = '1';
+    } else if (location.pathname === '/home-page/add-book') {
+      currentKey = '2';
+    } else if (location.pathname === '/home-page/user-management') {
+      currentKey = '3';
+    }
+  }
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -42,6 +55,8 @@ function SideBar({ collapsed, setCollapsed }) {
     }
   }
 
+  checkLocation();
+
   return (
     <div>
       <Button
@@ -54,8 +69,7 @@ function SideBar({ collapsed, setCollapsed }) {
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
       <Menu
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
+        defaultSelectedKeys={[currentKey]}
         mode="inline"
         theme="dark"
         onClick={(item) => handleClickItems(item)}
