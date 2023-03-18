@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, InputNumber, Popconfirm, Table, Typography, Input, Space, notification} from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import './content.css';
 
 const EditableCell = ({
   editing,
@@ -37,7 +38,7 @@ const EditableCell = ({
   );
 };
 
-const Contents = () => {
+function Contents () {
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
   const [bookList, setBookList] = useState([]);

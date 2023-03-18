@@ -3,10 +3,10 @@ import {
   HomeOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
-  BookOutlined
+  BookOutlined,
+  SearchOutlined
 } from "@ant-design/icons";
 import { Button, Menu } from "antd";
-import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import './sidebar.css'
 
@@ -24,6 +24,7 @@ const items = [
   getItem("Home", "1", <HomeOutlined />),
   getItem("Add Book", "2", <BookOutlined />),
   getItem("User Management", "3", <UserOutlined />),
+  getItem("Search", "4", <SearchOutlined />),
 ];
 
 function SideBar({ collapsed, setCollapsed }) {
@@ -38,6 +39,8 @@ function SideBar({ collapsed, setCollapsed }) {
       currentKey = '2';
     } else if (location.pathname === '/home-page/user-management') {
       currentKey = '3';
+    } else if (location.pathname === '/home-page/search') {
+      currentKey = '4';
     }
   }
 
@@ -52,6 +55,8 @@ function SideBar({ collapsed, setCollapsed }) {
       navigate("/home-page/add-book");
     } else if (item.key === "3") {
       navigate("/home-page/user-management");
+    } else if (item.key === "4") {
+      navigate("/home-page/search");
     }
   }
 
