@@ -6,18 +6,14 @@ const { TextArea } = Input;
 const AddBookForm = () => {
   const url = "http://localhost:3000/books";
 
-  const [bookName, setBookName] = useState("");
-  const [author, setAuthor] = useState("");
-  const [category, setCategory] = useState("");
-  const [remain, setRemain] = useState(0);
-  const [description, setDescription] = useState("");
+  const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
   const [bookList, setBookList] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      await fetch("http://localhost:3000/books")
+      await fetch(url)
         .then((res) => res.json())
         .then((list) => {
           setBookList(list);
@@ -50,14 +46,6 @@ const AddBookForm = () => {
     });
   }
 
-  var data = {
-    name: bookName,
-    author: author,
-    category: category,
-    remain: remain,
-    description: description,
-  }
-
   return (
     <>
       <Form
@@ -65,28 +53,77 @@ const AddBookForm = () => {
         wrapperCol={{ span: 14 }}
         layout="horizontal"
         style={{ maxWidth: 600 }}
+        form={form}
+        onFinish={(value) => handleCreate(value)}
       >
         {contextHolder}
-        <Form.Item label="Name">
-          <Input onChange={(e) => setBookName(e.target.value)}/>
+        <Form.Item
+          name="name"
+          label="Name"
+          rules={[
+            {
+              required: true,
+              message: "Please enter a name"
+            }
+          ]}
+        >
+          <Input />
         </Form.Item>
-        <Form.Item label="Author">
-          <Input onChange={(e) => setAuthor(e.target.value)}/>
+        <Form.Item
+          name="author"
+          label="Author"
+          rules={[
+            {
+              required: true,
+              message: "Please enter author's name"
+            }
+          ]}
+        >
+          <Input />
         </Form.Item>
-        <Form.Item label="Category">
-          <Input onChange={(e) => setCategory(e.target.value)}/>
+        <Form.Item
+          name="category"
+          label="Category"
+          rules={[
+            {
+              required: true,
+              message: "Please enter category"
+            }
+          ]}
+        >
+          <Input />
         </Form.Item>
-        <Form.Item label="Remain">
-          <InputNumber onChange={(e) => setRemain(e)}/>
+        <Form.Item
+          name="remain"
+          label="Remain"
+          rules={[
+            {
+              required: true,
+              message: "Please enter a number of books remainning",
+            },
+            {
+              type: "number",
+              min: 0,
+              message: "Please enter a negative number"
+            }
+          ]}
+        >
+          <InputNumber />
         </Form.Item>
-        <Form.Item label="Description">
-          <TextArea
-            rows={4}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+        <Form.Item
+          name="description"
+          label="Description"
+          rules={[
+            {
+              required: true,
+              message: "Please enter description"
+            }
+          ]}
+        >
+          <TextArea rows={4} />
         </Form.Item>
         <Form.Item label="Button">
-          <Button onClick={() => handleCreate(data)}>Create</Button>
+          <Button htmlType="submit">Create</Button>
         </Form.Item>
       </Form>
     </>
