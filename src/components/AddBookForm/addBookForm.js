@@ -38,6 +38,8 @@ const AddBookForm = () => {
     }
     fetchCreate();
 
+    form.resetFields();
+
     // create notification
     api['success']({
       message: "Created",
@@ -149,6 +151,23 @@ const AddBookForm = () => {
           ]}
         >
           <TextArea rows={4} />
+        </Form.Item>
+        <Form.Item
+          name="image"
+          label="Image"
+          rules={[
+            {
+              required: true,
+              message: "Please enter an url",
+            },
+            {
+              type: "string",
+              whitespace: true,
+              message: "Url can not be start with whitespace"
+            }
+          ]}
+        >
+          <Input />
         </Form.Item>
         <Form.Item label="Button">
           <Button htmlType="submit">Create</Button>

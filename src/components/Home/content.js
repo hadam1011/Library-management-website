@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, InputNumber, Popconfirm, Table, Typography, Input, Space, notification} from "antd";
+import {
+  Form, InputNumber, Popconfirm, Table,
+  Typography, Input, Space, notification,
+  Image, Col, Row
+} from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import './content.css';
 
@@ -232,9 +236,17 @@ function Contents () {
         pagination={{
           onChange: cancel,
         }}
+        scroll={{ y: 580 }}
         expandable={{
           expandedRowRender: (record) => (
-            <p style={{ margin: 0 }}>{record.description}</p>
+            <Row>
+              <Col span={3}>
+                <Image height={"10em"} src={record.image} />
+              </Col>
+              <Col span={21}>
+                <p style={{ margin: 0 }}>{record.description}</p>
+              </Col>
+            </Row>
           ),
         }}
       />

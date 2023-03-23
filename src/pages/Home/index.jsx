@@ -72,7 +72,7 @@ function HomePage() {
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
-              }}
+              }}  
             >
               {checkLocation && <Contents />}
               <Outlet />

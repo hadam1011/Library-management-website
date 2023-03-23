@@ -20,7 +20,8 @@
       "author": "Paulo Coelho",
       "category": "Tiểu thuyết",
       "remain": 30,
-      "description": "Nhà Giả Kim là câu chuyện được xoay quanh cậu bé chăn cừu có tên Santiago trong chuyến hành trình đi tìm kho báu của mình. Cuộc hành trình này đã giúp cậu nhận ra nhiều bài học trong cuộc sống cũng như mục đích và ý nghĩa cuộc đời mình. "
+      "description": "Nhà Giả Kim là câu chuyện được xoay quanh cậu bé chăn cừu có tên Santiago trong chuyến hành trình đi tìm kho báu của mình. Cuộc hành trình này đã giúp cậu nhận ra nhiều bài học trong cuộc sống cũng như mục đích và ý nghĩa cuộc đời mình.",
+      "image": "https://salt.tikicdn.com/cache/750x750/ts/product/83/30/87/737846efdb9f28f0f51352cacf9225c5.jpg.webp"
     },
     {
       "name": "Đời thay đổi khi chúng ta thay đổi - Tập 1",
@@ -28,6 +29,7 @@
       "category": "Kỹ năng sống",
       "remain": 70,
       "description": "Quyển sách này nói về việc tại sao có những người dường như lúc nào cũng ở đúng nơi và đúng lúc - và làm thế nào bạn cũng được như họ; tại sao hóa đơn tính tiền luôn luôn tới ngay tức khắc; tại sao đèn giao thông cứ ở màu đỏ hoài cả nửa ngày trong khi bạn đang trễ một cuộc hẹn làm ăn; tại sao đi du lịch Tây Ban Nha mà bạn cũng gặp người láng giềng sát bên nhà; tại sao bạn chạy chiếc xe cà tàng suốt 15 năm ròng rã mà chưa bao giờ va quẹt... thế rồi chiếc xe mới mua mới chạy có hai ngày đã đụng móp mui! Quyển sách này nói về: hiểu được bản thân, biết khôi hài về bản thân, trở nên suôn sẻ thuận lợi, biết tha thứ cho bản thân. Sách cũng bàn về việc nhận thức được các quy luật tự nhiên để chúng ta có thể điều chỉnh bản tính chúng ta tốt hơn. Đây là quyển sách nói về làm thế nào để được hạnh phúc.",
+      "image": "https://salt.tikicdn.com/cache/750x750/media/catalog/product/f/u/full-img-2741328146930.jpg.webp",
       "key": 3,
       "id": 3
     },
@@ -37,8 +39,29 @@
       "category": "Tiểu thuyết",
       "remain": 53,
       "description": "Tác phẩm gồm những câu chuyện nhỏ xoay xung quanh 4 đứa trẻ trong cùng một khu xóm là con Tủn, con Tí sún, thằng Hải cò và thằng cu Mùi. Trong đó, người kể chuyện là cu Mùi dưới hình thức kể của \"thằng cu Mùi\" lúc bé và nhận xét, đánh giá của \"ông Mùi\" khi đã gần 50 tuổi. Song song đó còn có sự xuất hiện của các phụ huynh và những câu chuyện dở khóc dở cười khiến chúng như đang sống lại tuổi thơ tươi đẹp.",
+      "image": "https://upload.wikimedia.org/wikipedia/vi/c/c9/Cho_t%C3%B4i_xin_m%E1%BB%99t_v%C3%A9_%C4%91i_tu%E1%BB%95i_th%C6%A1.jpg",
       "key": 4,
       "id": 4
+    },
+    {
+      "name": "Đắc nhân tâm",
+      "author": "Dale Carnegie",
+      "category": "Tâm lý - Kỹ năng sống",
+      "remain": 45,
+      "description": "Đây là cuốn sách độc nhất về thể loại self-help sở hữu một lượng lớn người hâm mộ. Ngoài ra cuốn sách có doanh số bán ra cao nhất được tờ báo The New York Times bình chọn trong nhiều năm. Cuốn sách này không còn là một tác phẩm về nghệ thuật đơn thuần nữa mà là một bước thay đổi lớn trong cuộc sống của mỗi người.",
+      "image": "https://nhasachmienphi.com/images/thumbnail/nhasachmienphi-dac-nhan-tam.jpg",
+      "key": 5,
+      "id": 5
+    },
+    {
+      "name": "Tôi Là Ai – Và Nếu Vậy Thì Bao Nhiêu?",
+      "author": "Richard David Precht",
+      "category": "Triết Học",
+      "remain": 4,
+      "description": "Tôi là ai ? Và nếu vậy thì bao nhiêu là hành tình đi tìm câu trả lời cho những câu hỏi triết học, trả lời câu hỏi tôi là ai, tôi là ai và đây là đâu, tôi là ai nếu vậy thì bao nhiêu, bạn là ai và chúng ta sống với mục đích gì…",
+      "image": "https://salt.tikicdn.com/cache/750x750/media/catalog/product/t/o/toi_la_ai_va_neu_vay_thi_bao_nhieu_1.jpg.webp",
+      "key": 6,
+      "id": 6
     }
   ]
 }
