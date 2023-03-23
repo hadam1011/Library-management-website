@@ -3,7 +3,13 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "realName": "Đàm Hà",
+      "gender": "male",
+      "phoneNumber": "0819133189",
+      "email": "hadam8910@gmail.com",
+      "address": "Mộ lao - Hà Đông - Hà Nội",
+      "avatar": "../../assets/images/avatar/admin.jpg"
     }
   ],
   "books": [

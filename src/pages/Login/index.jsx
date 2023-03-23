@@ -22,15 +22,14 @@ function LoginForm({ setUser }) {
   const handleBtn = () => {
     userList.forEach((user) => {
       if (!success) {
-        success =
-          user.username === username && user.password === password
-            ? true
-            : false;
-      }
+        success = user.username === username && user.password === password ? true : false;
+        if (success) {
+          setUser(user);
+        }
+      } 
     });
 
     if (success) {
-      setUser(username);
       navigate("/home-page");
     } else {
       alert("Sai thong tin hoac mat khau");

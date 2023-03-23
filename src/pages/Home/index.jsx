@@ -1,10 +1,11 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Layout, Avatar, Dropdown, Modal } from "antd";
+import { Layout, Avatar, Dropdown } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 import SideBar from "../../components/Home/sidebar";
 import Contents from "../../components/Home/content";
+import InfoModal from "../../components/InformationModal/infoModal";
 import "./home.css";
 
 const { Header, Content, Sider } = Layout;
@@ -35,20 +36,9 @@ function HomePage({ user }) {
       navigate("/");
     }
   }
-
   return (
     <div className="home-container">
-      <Modal
-        title="Information"
-        centered
-        open={isModalOpen}
-        onOk={() => setIsModalOpen(false)}
-        onCancel={() => setIsModalOpen(false)}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      <InfoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} user={user}/>
       <Layout>
         <Header className="header">
           <div className="logo">
