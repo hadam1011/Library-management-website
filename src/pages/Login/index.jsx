@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
-function LoginForm({ setUser }) {
+function LoginForm() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [userList, setUserList] = useState([]);
@@ -24,7 +24,7 @@ function LoginForm({ setUser }) {
       if (!success) {
         success = user.username === username && user.password === password ? true : false;
         if (success) {
-          setUser(user);
+          window.localStorage.setItem('user', JSON.stringify(user));
         }
       } 
     });

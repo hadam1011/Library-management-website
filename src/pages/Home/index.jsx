@@ -21,9 +21,10 @@ const itemsDropdown = [
   },
 ];
 
-function HomePage({ user }) {
+function HomePage() {
   let location = useLocation();
   const checkLocation = location.pathname === "/home-page" ? true : false;
+  const user = JSON.parse(window.localStorage.getItem("user"));
 
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
@@ -34,6 +35,7 @@ function HomePage({ user }) {
       setIsModalOpen(true);
     } else if (item.key === "2") {
       navigate("/");
+      window.localStorage.clear();
     }
   }
   return (
