@@ -63,7 +63,12 @@ const AddBookForm = () => {
           rules={[
             {
               required: true,
-              message: "Please enter a name"
+              message: "Please enter a name",
+            },
+            {
+              type: "string",
+              whitespace: true,
+              message: "Name can not be start with whitespace"
             }
           ]}
         >
@@ -75,7 +80,12 @@ const AddBookForm = () => {
           rules={[
             {
               required: true,
-              message: "Please enter author's name"
+              message: "Please enter author's name",
+            },
+            {
+              type: "string",
+              whitespace: true,
+              message: "Author's name can not be start with whitespace"
             }
           ]}
         >
@@ -87,8 +97,21 @@ const AddBookForm = () => {
           rules={[
             {
               required: true,
-              message: "Please enter category"
-            }
+              message: "Please enter category",
+            },
+            {
+              type: "string",
+              whitespace: true,
+              message: "Category can not be start with whitespace"
+            },
+            () => ({
+              validator(_, value) {
+                if (!/\d/.test(value)) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error('Please enter valid category'));
+              },
+            }),
           ]}
         >
           <Input />
@@ -116,7 +139,12 @@ const AddBookForm = () => {
           rules={[
             {
               required: true,
-              message: "Please enter description"
+              message: "Please enter description",
+            },
+            {
+              type: "string",
+              whitespace: true,
+              message: "Category can not be start with whitespace"
             }
           ]}
         >
