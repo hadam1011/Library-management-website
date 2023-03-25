@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import {
-  Form, InputNumber, Popconfirm, Table,
-  Typography, Input, Space, notification,
-  Image, Col, Row
+  Form,
+  InputNumber,
+  Popconfirm,
+  Table,
+  Typography,
+  Input,
+  Space,
+  notification,
+  Image,
+  Col,
+  Row,
 } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import './content.css';
+import "./content.css";
+
+const { Search } = Input;
 
 const EditableCell = ({
   editing,
@@ -42,7 +52,7 @@ const EditableCell = ({
   );
 };
 
-function Contents () {
+function Contents() {
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState("");
   const [bookList, setBookList] = useState([]);
@@ -91,12 +101,11 @@ function Contents () {
         });
     }
     fetchUpdate();
-    
+
     // update notification
-    api['success']({
+    api["success"]({
       message: "Updated",
-      description:
-        "The data has been successfully updated",
+      description: "The data has been successfully updated",
     });
   }
 
@@ -134,10 +143,9 @@ function Contents () {
     fetchDelete();
 
     // delete notification
-    api['success']({
+    api["success"]({
       message: "Deleted",
-      description:
-        "The data has been successfully deleted",
+      description: "The data has been successfully deleted",
     });
   }
 
@@ -184,18 +192,20 @@ function Contents () {
               Save
             </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-              <a>Cancel</a>
+              <Typography.Link>Cancel</Typography.Link>
             </Popconfirm>
           </span>
         ) : (
           <Space size="large">
-            <DeleteOutlined
-              style={{ fontSize: "20px" }}
-              onClick={() => handleDelete(record.id)}
-            />
+            <Popconfirm
+              title="Are you sure you want to delete this book?"
+              onConfirm={() => handleDelete(record.id)}
+            >
+              <DeleteOutlined style={{ fontSize: "20px" }} />
+            </Popconfirm>
             <EditOutlined
-                style={{ fontSize: "20px" }}
-                disabled={editingKey !== ""}
+              style={{ fontSize: "20px" }}
+              disabled={editingKey !== ""}
               onClick={() => edit(record)}
             />
           </Space>
@@ -203,7 +213,7 @@ function Contents () {
       },
     },
   ];
-  
+
   const mergedColumns = columns.map((col) => {
     if (!col.editable) {
       return col;
@@ -220,9 +230,26 @@ function Contents () {
     };
   });
 
+  const onSearch = (value) => {
+    const newBookList = [];
+    bookList.forEach((book) => {
+      if (book.name.includes(value)) {
+        newBookList.push(book);
+      }
+    })
+    setBookList(newBookList);
+  }
+
   return (
     <Form form={form} component={false}>
       {contextHolder}
+      <Search
+        placeholder="Search by book's name"
+        allowClear
+        onSearch={(value) => onSearch(value)}
+        enterButton
+        style={{ width: "30%", marginBottom: "10px" }}
+      />
       <Table
         components={{
           body: {
@@ -236,7 +263,7 @@ function Contents () {
         pagination={{
           onChange: cancel,
         }}
-        scroll={{ y: 580 }}
+        scroll={{ y: 550 }}
         expandable={{
           expandedRowRender: (record) => (
             <Row>
@@ -252,6 +279,6 @@ function Contents () {
       />
     </Form>
   );
-};
+}
 
 export default Contents;

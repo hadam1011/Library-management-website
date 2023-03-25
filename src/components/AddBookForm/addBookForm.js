@@ -150,11 +150,12 @@ const AddBookForm = () => {
             }
           ]}
         >
-          <TextArea rows={4} />
+          <TextArea rows={4} showCount maxLength={1000}/>
         </Form.Item>
         <Form.Item
           name="image"
           label="Image"
+          extra="We need the link of an image"
           rules={[
             {
               required: true,
