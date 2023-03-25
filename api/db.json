@@ -52,6 +52,76 @@
       "image": "https://salt.tikicdn.com/cache/750x750/media/catalog/product/t/o/toi_la_ai_va_neu_vay_thi_bao_nhieu_1.jpg.webp",
       "key": 6,
       "id": 6
+    },
+    {
+      "name": "Tội Ác Và Hình Phạt",
+      "author": "Fyodor Dostoevsky",
+      "category": "Tiểu thuyết - Hư cấu",
+      "remain": 25,
+      "description": "Câu chuyện xoay quanh sinh viên trẻ Rodion Romanovich Raskolnikov (nói rằng nhanh hơn mười lần), một thanh niên thông minh nhưng gặp rắc rối, người đã chuẩn bị cho một vụ giết người hoàn hảo của một tiệm cầm đồ tàn ác. Tuy nhiên, sau vụ giết người, Raskolnikov bị mắc kẹt trong sự tồn tại tội lỗi của mình, khiến anh ta phát điên khi mẹ và em gái của anh ta cùng anh ta đến St. Nhịp độ diễn ra chậm một cách kỳ cục, nhưng các nhân vật đều rất sâu sắc và chân thực một cách đáng lo ngại.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-toi-ac-va-hinh-phat.jpg",
+      "key": 7,
+      "id": 7
+    },
+    {
+      "name": "Những Tấm Lòng Cao Cả",
+      "author": "Edmondo De Amicis",
+      "category": "Tiểu thuyết",
+      "remain": 45,
+      "description": "Cuốn sách Những Tấm Lòng Cao Cả chứa nội dung đơn giản là cuộc sống bình thường của một cậu bé, mà cũng thật là cảm động. Những tình cảm dung dị và ngây thơ cậu dành cho cô giáo lớp một, bố mẹ, cả bạn bè cùng lớp, trong cái cách mà cậu miêu tả về họ đầy hồn nhiên và yêu thương.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-nhung-tam-long-cao-ca.jpg",
+      "key": 8,
+      "id": 8
+    },
+    {
+      "name": "Harry Potter",
+      "author": "J. K. Rowling",
+      "category": "Truyện",
+      "remain": 65,
+      "description": "Nội dung câu chuyện viễn tưởng từng gây sốt trên nhiều thị trường sách này đề cập về cuộc chiến của cậu bé phù thủy Harry Potter 1 mình chống lại một phù thủy hắc ám Chúa tể Voldemort, người đã giết cha mẹ cậu cũng như toàn bộ phù thủy chống lại hắn để thực hiện tham vọng làm chủ thế giới phù thủy và con người.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-phieu-luu-harry-potter.jpg",
+      "key": 9,
+      "id": 9
+    },
+    {
+      "name": "Đừng Bao Giờ Đi Ăn Một Mình",
+      "author": "Keith Ferrazzi",
+      "category": "Kỹ năng làm việc",
+      "remain": 34,
+      "description": "Bạn mong muốn đi tắt đón đầu? Bạn muốn vững bước đến thành công? Công thức để làm được điều này, theo lời bậc thầy về kết nối là Keith Ferrazzi, chính là phải biết làm quen với mọi người. Ferrazzi đã khám phá từ khi còn trẻ rằng điểm đặc biệt của những người thành công thẫm mỹ chính là cách họ vận dụng quyền năng của những mối quan hệ giao tiếp – để mọi người cùng thắng. Trong quyển sách Đừng bao giờ đi ăn một mình (Never Eat Alone), Ferrazzi cũng chỉ ra từng bước cách thức – và lý do – mà chính ông đã áp dụng để kết nối với hàng ngàn người là đồng nghiệp, bạn bè có tên trong số danh bạ, đó là những người ông đã giúp đỡ và ngược lại cũng chuẩn bị giúp đỡ ông.",
+      "image": "https://isachhay.net/wp-content/uploads/2018/12/dung-bao-gio-di-an-mot-minh-pdf.jpg",
+      "key": 10,
+      "id": 10
+    },
+    {
+      "name": "Ông Già Và Biển Cả",
+      "author": "Hemingway",
+      "category": "Truyện ngắn",
+      "remain": 57,
+      "description": "Ông già và Biển cả (The Old Man and the Sea) là truyện ngắn dạng viễn tưởng cuối cùng được viết bởi Hemingway. Trong tác phẩm này, ông đã triệt để sử dụng nguyên lý mà ông gọi là “tảng băng trôi”, chỉ mô tả một phần nổi còn lại bảy phần chìm, lúc mô tả sức mạnh của con cá, sự chênh lệch về lực lượng, về cuộc chiến đấu không cân sức giữa con cá hung dữ với ông già. Tác phẩm ca ngợi niềm tin, sức lao động và khát vọng của con người.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-ong-gia-va-bien-ca.jpg",
+      "key": 12,
+      "id": 12
+    },
+    {
+      "name": "Bố già",
+      "author": "Mario Puzo",
+      "category": "Tiểu thuyết",
+      "remain": 76,
+      "description": "Thế giới ngầm được phản ánh trong tiểu thuyết “Bố già” (The Godfather) là sự gặp gỡ giữa 1 bên là ý chí cương cường và nền tảng gia tộc chặt chẽ theo truyền thống Mafia xứ Sicily với 1 bên là xã hội Mỹ nhập nhằng đen trắng, mảnh đất màu mỡ cho những cơ hội làm cho ăn bất chính hứa hẹn các món lợi kếch xù. Trong thế giới ấy, hình tượng Bố già được tác giả dày công khắc họa đã phát triển thành bức chân dung bất hủ trong lòng người đọc. Từ một kẻ nhập cư tay trắng tới ông trùm tột đỉnh quyền uy, Don Vito Corleone là con rắn hổ có thâm trầm, nguy hiểm làm kẻ thù buộc phải kiềng nể, e dè, nhưng cũng được bạn bè, thân quyến xem như 1 đấng toàn năng đầy nghĩa khí. Nhân vật trung tâm ấy đồng thời cũng là hiện thân của 1 pho triết lí rất “đời” được nhào nặn từ vốn sống của hàng chục năm lăn lộn giữa chốn giang hồ bao phen vào sinh ra tử.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-bo-gia.jpg",
+      "key": 13,
+      "id": 13
+    },
+    {
+      "name": "Cuốn Theo Chiều Gió",
+      "author": "Margaret Mitchell",
+      "category": "Tiểu thuyết",
+      "remain": 75,
+      "description": "Sách lấy bối cảnh từ cuộc nội chiến cực kỳ khốc liệt giữa Bắc và Nam Mỹ, “Cuốn Theo Chiều Gió” có cốt truyện rõ ràng, tối ưu, dễ hiểu, đã khắc họa một cách tài tình tâm trạng, tính cách và thân phận của nhiều tầng lớp người trong chiến tranh và thời hậu chiến. Nhân vật chính của tiểu thuyết là cô gái Scarlett O’hara cùng với chàng trai Rhett Butler trở thành cặp nhân vật điển hình, thuộc loại thành công nhất trong văn học Hoa Kỳ.",
+      "image": "https://isachhay.net/wp-content/uploads/2017/08/sach-hay-cuon-theo-chieu-gio.jpg",
+      "key": 14,
+      "id": 14
     }
   ]
 }

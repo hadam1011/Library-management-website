@@ -15,8 +15,6 @@ import {
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import "./content.css";
 
-const { Search } = Input;
-
 const EditableCell = ({
   editing,
   dataIndex,
@@ -230,26 +228,9 @@ function Contents() {
     };
   });
 
-  const onSearch = (value) => {
-    const newBookList = [];
-    bookList.forEach((book) => {
-      if (book.name.includes(value)) {
-        newBookList.push(book);
-      }
-    })
-    setBookList(newBookList);
-  }
-
   return (
     <Form form={form} component={false}>
       {contextHolder}
-      <Search
-        placeholder="Search by book's name"
-        allowClear
-        onSearch={(value) => onSearch(value)}
-        enterButton
-        style={{ width: "30%", marginBottom: "10px" }}
-      />
       <Table
         components={{
           body: {
@@ -261,9 +242,9 @@ function Contents() {
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={{
-          onChange: cancel,
+          pageSize: 10,
         }}
-        scroll={{ y: 550 }}
+        scroll={{ y: 580 }}
         expandable={{
           expandedRowRender: (record) => (
             <Row>
