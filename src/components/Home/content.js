@@ -242,10 +242,11 @@ function Contents() {
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={{
-          pageSize: 10,
+          hideOnSinglePage: true
         }}
         scroll={{ y: 580 }}
         expandable={{
+          expandRowByClick: true,
           expandedRowRender: (record) => (
             <Row>
               <Col span={3}>
