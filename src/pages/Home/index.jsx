@@ -9,6 +9,7 @@ import InfoModal from "../../components/InformationModal/infoModal";
 import "./home.css";
 
 const { Header, Content, Sider } = Layout;
+const url = "https://hadam1011.github.io/Library-management-website";
 
 const itemsDropdown = [
   {
@@ -23,7 +24,7 @@ const itemsDropdown = [
 
 function HomePage() {
   let location = useLocation();
-  const checkLocation = location.pathname === "/home-page" ? true : false;
+  const checkLocation = location.pathname === `${url}/home-page` ? true : false;
   const user = JSON.parse(window.localStorage.getItem("user"));
 
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function HomePage() {
     if (item.key === "1") {
       setIsModalOpen(true);
     } else if (item.key === "2") {
-      navigate("/");
+      navigate(url);
       window.localStorage.clear();
     }
   }

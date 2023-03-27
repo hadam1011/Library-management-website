@@ -10,6 +10,8 @@ import { Button, Menu } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
 import './sidebar.css'
 
+const url = "https://hadam1011.github.io/Library-management-website";
+
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -33,13 +35,13 @@ function SideBar({ collapsed, setCollapsed }) {
   let currentKey = '1';
 
   function checkLocation() {
-    if (location.pathname === '/home-page') {
+    if (location.pathname === `${url}/home-page`) {
       currentKey = '1';
-    } else if (location.pathname === '/home-page/add-book') {
+    } else if (location.pathname === `${url}/home-page/add-book`) {
       currentKey = '2';
-    } else if (location.pathname === '/home-page/user-management') {
+    } else if (location.pathname === `${url}/home-page/user-management`) {
       currentKey = '3';
-    } else if (location.pathname === '/home-page/search') {
+    } else if (location.pathname === `${url}/home-page/search`) {
       currentKey = '4';
     }
   }
@@ -50,13 +52,13 @@ function SideBar({ collapsed, setCollapsed }) {
 
   function handleClickItems(item) {
     if (item.key === "1") {
-      navigate("/home-page");
+      navigate(`${url}/home-page`);
     } else if (item.key === "2") {
-      navigate("/home-page/add-book");
+      navigate(`${url}/home-page/add-book`);
     } else if (item.key === "3") {
-      navigate("/home-page/user-management");
+      navigate(`${url}/home-page/user-management`);
     } else if (item.key === "4") {
-      navigate("/home-page/search");
+      navigate(`${url}/home-page/search`);
     }
   }
 
