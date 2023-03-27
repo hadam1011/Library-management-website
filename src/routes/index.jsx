@@ -12,7 +12,7 @@ function RouterPages() {
   return (
     <Router>
       <Routes>
-        <Route path={url} element={<LoginForm />} />
+        <Route path={`${url}/`} element={<LoginForm />} />
         <Route path={`${url}/home-page`} element={<HomePage />}>
           <Route path={`${url}/home-page/user`} element={<User />} />
           <Route path={`${url}/home-page/add-book`} element={<AddBookForm />} />
