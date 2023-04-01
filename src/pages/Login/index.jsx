@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
-const url = "https://hadam1011.github.io/Library-management-website";
+// const url = "https://hadam1011.github.io/Library-management-website";
 
 function LoginForm() {
   const [username, setUserName] = useState("");
@@ -32,7 +32,7 @@ function LoginForm() {
     });
 
     if (success) {
-      navigate(`${url}/home-page`);
+      navigate(`/home-page`);
     } else {
       alert("Sai thong tin hoac mat khau");
     }

@@ -16,16 +16,9 @@ section .ant-layout {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
     padding: 0;
-}
-
-.logo h3 {
-    color: #fff;
-    padding-left: 1em;
-    font-size: 1.3em;
 }
 
 .user-avatar {
@@ -35,4 +28,21 @@ section .ant-layout {
 
 .ant-avatar:hover {
     cursor: pointer;
+}
+
+.trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    height: 2em;
+    margin: 1em;
 }

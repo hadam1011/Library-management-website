@@ -1,16 +1,15 @@
 import {
-  MenuFoldOutlined,
   HomeOutlined,
-  MenuUnfoldOutlined,
   UserOutlined,
   BookOutlined,
-  SearchOutlined
+  SearchOutlined,
+  ReadOutlined
 } from "@ant-design/icons";
-import { Button, Menu } from "antd";
+import { Menu } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
-import './sidebar.css'
+import "./sidebar.css";
 
-const url = "https://hadam1011.github.io/Library-management-website";
+// const url = "https://hadam1011.github.io/Library-management-website";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -29,36 +28,32 @@ const items = [
   getItem("Search", "4", <SearchOutlined />),
 ];
 
-function SideBar({ collapsed, setCollapsed }) {
+function SideBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  let currentKey = '1';
+  let currentKey = "1";
 
   function checkLocation() {
-    if (location.pathname === `${url}/home-page`) {
-      currentKey = '1';
-    } else if (location.pathname === `${url}/home-page/add-book`) {
-      currentKey = '2';
-    } else if (location.pathname === `${url}/home-page/user-management`) {
-      currentKey = '3';
-    } else if (location.pathname === `${url}/home-page/search`) {
-      currentKey = '4';
+    if (location.pathname === `/home-page`) {
+      currentKey = "1";
+    } else if (location.pathname === `/home-page/add-book`) {
+      currentKey = "2";
+    } else if (location.pathname === `/home-page/user-management`) {
+      currentKey = "3";
+    } else if (location.pathname === `/home-page/search`) {
+      currentKey = "4";
     }
   }
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
   function handleClickItems(item) {
     if (item.key === "1") {
-      navigate(`${url}/home-page`);
+      navigate(`/home-page`);
     } else if (item.key === "2") {
-      navigate(`${url}/home-page/add-book`);
+      navigate(`/home-page/add-book`);
     } else if (item.key === "3") {
-      navigate(`${url}/home-page/user-management`);
+      navigate(`/home-page/user-management`);
     } else if (item.key === "4") {
-      navigate(`${url}/home-page/search`);
+      navigate(`/home-page/search`);
     }
   }
 
@@ -66,15 +61,13 @@ function SideBar({ collapsed, setCollapsed }) {
 
   return (
     <div>
-      <Button
-        type="primary"
-        onClick={toggleCollapsed}
-        style={{
-          marginBottom: 16,
-        }}
-      >
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
+      <div className="logo">
+        <ReadOutlined style={{
+          fontSize: "2.5em",
+          color: "white",
+          marginLeft: "0.25em"
+        }} />
+      </div>
       <Menu
         defaultSelectedKeys={[currentKey]}
         mode="inline"

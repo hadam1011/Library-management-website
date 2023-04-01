@@ -1,7 +1,11 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Layout, Avatar, Dropdown } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { Layout, Avatar, Dropdown, theme } from "antd";
+import {
+  UserOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+} from "@ant-design/icons";
+import React, { useState } from "react";
 
 import SideBar from "../../components/Home/sidebar";
 import Contents from "../../components/Home/content";
@@ -9,7 +13,7 @@ import InfoModal from "../../components/InformationModal/infoModal";
 import "./home.css";
 
 const { Header, Content, Sider } = Layout;
-const url = "https://hadam1011.github.io/Library-management-website";
+// const url = "https://hadam1011.github.io/Library-management-website";
 
 const itemsDropdown = [
   {
@@ -24,8 +28,11 @@ const itemsDropdown = [
 
 function HomePage() {
   let location = useLocation();
-  const checkLocation = location.pathname === `${url}/home-page` ? true : false;
+  const checkLocation = location.pathname === `/home-page` ? true : false;
   const user = JSON.parse(window.localStorage.getItem("user"));
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
@@ -35,45 +42,50 @@ function HomePage() {
     if (item.key === "1") {
       setIsModalOpen(true);
     } else if (item.key === "2") {
-      navigate(url);
+      navigate("/");
       window.localStorage.clear();
     }
   }
+
   return (
     <div className="home-container">
-      <InfoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} user={user}/>
+      <InfoModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        user={user}
+      />
       <Layout>
-        <Header className="header">
-          <div className="logo">
-            <h3>Library Manager</h3>
-          </div>
-          <div className="user-avatar">
-            <Dropdown
-              menu={{
-                items: itemsDropdown,
-                selectable: true,
-                onClick: handleClickDropdownItem,
-              }}
-            >
-              <Avatar size="large" icon={<UserOutlined />} />
-            </Dropdown>
-          </div>
-        </Header>
+        <Sider collapsed={collapsed} trigger={null} collapsible>
+          <SideBar />
+        </Sider>
         <Layout>
-          <Sider collapsed={collapsed}>
-            <SideBar collapsed={collapsed} setCollapsed={setCollapsed} />
-          </Sider>
-          <Layout
-            style={{
-              padding: "0 24px 24px",
-            }}
-          >
+          <Layout>
+            <Header className="header" style={{ background: colorBgContainer }}>
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: "trigger",
+                  onClick: () => setCollapsed(!collapsed),
+                }
+              )}
+              <div className="user-avatar">
+                <Dropdown
+                  menu={{
+                    items: itemsDropdown,
+                    selectable: true,
+                    onClick: handleClickDropdownItem,
+                  }}
+                >
+                  <Avatar size="large" icon={<UserOutlined />} />
+                </Dropdown>
+              </div>
+            </Header>
             <Content
               style={{
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
-              }}  
+              }}
             >
               {checkLocation && <Contents />}
               <Outlet />
