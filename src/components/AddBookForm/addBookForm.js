@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, Form, Input, InputNumber, notification } from "antd";
 
 const { TextArea } = Input;
@@ -9,26 +9,13 @@ const AddBookForm = () => {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
-  const [bookList, setBookList] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      await fetch(url)
-        .then((res) => res.json())
-        .then((list) => {
-          setBookList(list);
-        });
-    }
-    fetchData();
-  }, []);
-
   function handleCreate(data) {
     var options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({...data, key:bookList[bookList.length - 1].id + 1}),
+      body: JSON.stringify(data),
     };
 
     async function fetchCreate() {

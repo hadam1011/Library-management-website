@@ -15,6 +15,8 @@ import {
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import "./content.css";
 
+const api_url = "http://localhost:3000/books";
+
 const EditableCell = ({
   editing,
   dataIndex,
@@ -58,11 +60,9 @@ function Contents() {
 
   // call API to get book list
   async function fetchData() {
-    await fetch("http://localhost:3000/books")
-      .then((res) => res.json())
-      .then((list) => {
-        setBookList(list);
-      });
+    const response = await fetch(api_url);
+    var data = await response.json();
+    setBookList(data);
   }
 
   useEffect(() => {
@@ -82,6 +82,7 @@ function Contents() {
     setEditingKey(record.id);
   };
 
+  // update book
   function handleUpdate(id, data) {
     var options = {
       method: "PUT",
@@ -92,7 +93,7 @@ function Contents() {
     };
 
     async function fetchUpdate() {
-      await fetch(`http://localhost:3000/books/${id}`, options)
+      await fetch(`${api_url}/${id}`, options)
         .then((res) => res.json())
         .then(() => {
           fetchData();
@@ -123,6 +124,7 @@ function Contents() {
     }
   };
 
+  // delete book
   function handleDelete(id) {
     var options = {
       method: "DELETE",
@@ -132,7 +134,7 @@ function Contents() {
     };
 
     async function fetchDelete() {
-      await fetch(`http://localhost:3000/books/${id}`, options)
+      await fetch(`${api_url}/${id}`, options)
         .then((res) => res.json())
         .then(() => {
           fetchData();
@@ -232,6 +234,7 @@ function Contents() {
     <Form form={form} component={false}>
       {contextHolder}
       <Table
+        rowKey={(record) => record.id}
         components={{
           body: {
             cell: EditableCell,
@@ -246,7 +249,6 @@ function Contents() {
         }}
         scroll={{ y: 580 }}
         expandable={{
-          expandRowByClick: true,
           expandedRowRender: (record) => (
             <Row>
               <Col span={3}>
