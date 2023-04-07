@@ -1,9 +1,10 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Layout, Avatar, Dropdown, theme } from "antd";
+import { Layout, Avatar, Dropdown, theme, Modal } from "antd";
 import {
   UserOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
@@ -30,6 +31,8 @@ function HomePage() {
   let location = useLocation();
   const checkLocation = location.pathname === `/home-page` ? true : false;
   const user = JSON.parse(window.localStorage.getItem("user"));
+
+  const [modal, contextHolder] = Modal.useModal();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -38,12 +41,23 @@ function HomePage() {
   const [collapsed, setCollapsed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const confirm = () => {
+    modal.confirm({
+      title: "Confirm",
+      content: "Are you sure you want to log out?",
+      icon: <ExclamationCircleOutlined />,
+      onOk: () => {
+        navigate("/");
+        window.localStorage.clear();
+      },
+    });
+  };
+
   function handleClickDropdownItem(item) {
     if (item.key === "1") {
       setIsModalOpen(true);
     } else if (item.key === "2") {
-      navigate("/");
-      window.localStorage.clear();
+      confirm();
     }
   }
 
@@ -55,6 +69,7 @@ function HomePage() {
         user={user}
       />
       <Layout>
+        {contextHolder}
         <Sider collapsed={collapsed} trigger={null} collapsible>
           <SideBar />
         </Sider>
