@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Table } from "antd";
+import { Button, Table } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import ModalForm from "../../components/ModalForm/modalForm";
 
 const api_url = "http://localhost:3000/user";
 
 function UserMangement() {
   const [userList, setUserList] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   // call API to get user list
   useEffect(() => {
@@ -26,13 +29,13 @@ function UserMangement() {
       title: "Gender",
       dataIndex: "gender",
       key: "gender",
-      width: "6%",
+      width: "7%",
     },
     {
       title: "Phone",
       dataIndex: "phoneNumber",
       key: "phoneNumber",
-      width: "8%",
+      width: "9%",
     },
     {
       title: "Email",
@@ -53,6 +56,19 @@ function UserMangement() {
 
   return (
     <>
+      <Button
+        type="primary"
+        icon={<PlusOutlined />}
+        onClick={() => setModalOpen(true)}
+        style={{ marginBottom: "1em" }}
+      >
+        Add new user
+      </Button>
+      <ModalForm
+        isModalOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+        userList={userList}
+      />
       <Table
         rowKey={(record) => record.id}
         bordered
