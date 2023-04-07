@@ -1,16 +1,52 @@
-import { Form, Modal, Input, Radio, Select } from "antd";
+import { Form, Modal, Input, Radio, Select, notification } from "antd";
+import { useState } from "react";
 
 const { Option } = Select;
+const api_url = "http://localhost:3000/user";
 
-function ModalForm({ isModalOpen, setModalOpen, userList }) {
+function ModalForm({ isModalOpen, setModalOpen }) {
+  const [list, setList] = useState([]);
+
   const [form] = Form.useForm();
+  const [api, contextHolder] = notification.useNotification();
+
+  const fetchData = async () => {
+    const response = await fetch(api_url);
+    var data = await response.json();
+    setList(data);
+  };
 
   // check user name exist
   const checkExist = (value) => {
-    for (const user of userList) {
+    for (const user of list) {
       if (user.username === value) return true;
     }
     return false;
+  };
+
+  const handleFormSubmit = (value) => {
+    var options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(value),
+    };
+
+    const fetchCreate = async () => {
+      await fetch(api_url, options)
+        .then((res) => res.json())
+    }
+
+    fetchCreate();
+    fetchData();
+
+    // create notification
+    api['success']({
+      message: "Created",
+      description:
+        "New data has been successfully created",
+    });
   };
 
   return (
@@ -19,9 +55,16 @@ function ModalForm({ isModalOpen, setModalOpen, userList }) {
         open={isModalOpen}
         title="Creat new user"
         onCancel={() => setModalOpen(false)}
-        onOk={() => setModalOpen(false)}
         okText="Submit"
+        onOk={() => {
+          form.validateFields()
+            .then((value) => {
+              handleFormSubmit(value);
+              setModalOpen(false);
+            });
+        }}
       >
+        {contextHolder}
         <Form form={form} layout="vertical">
           <Form.Item
             label="User name"

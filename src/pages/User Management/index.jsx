@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Table } from "antd";
+import { Button, Table, Space, notification } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ModalForm from "../../components/ModalForm/modalForm";
 
@@ -9,15 +9,41 @@ function UserMangement() {
   const [userList, setUserList] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const [api, contextHolder] = notification.useNotification();
+
   // call API to get user list
+  async function fetchData() {
+    const response = await fetch(api_url);
+    var data = await response.json();
+    setUserList(data);
+  }
+
   useEffect(() => {
-    async function getUserList() {
-      const response = await fetch(api_url);
-      var data = await response.json();
-      setUserList(data);
-    }
-    getUserList();
+    fetchData();
   }, []);
+
+  const handleDelete = (id) => {
+    var options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    async function fetchDelete() {
+      await fetch(`${api_url}/${id}`, options)
+        .then((res) => res.json())
+        .then(() => fetchData())
+    }
+
+    fetchDelete();
+
+    // delete notification
+    api["success"]({
+      message: "Deleted",
+      description: "The data has been successfully deleted",
+    });
+  };
 
   const columns = [
     {
@@ -50,12 +76,26 @@ function UserMangement() {
     {
       title: "Action",
       dataIndex: "Action",
-      render: (_, record) => {},
+      render: (_, record) => {
+        return (
+          <Space size="small">
+            <Button type="primary">View</Button>
+            <Button
+              type="primary"
+              danger
+              onClick={() => handleDelete(record.id)}
+            >
+              Delete
+            </Button>
+          </Space>
+        );
+      },
     },
   ];
 
   return (
     <>
+      {contextHolder}
       <Button
         type="primary"
         icon={<PlusOutlined />}
