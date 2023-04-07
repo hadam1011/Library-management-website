@@ -140,6 +140,7 @@ function Contents() {
           fetchData();
         });
     }
+    
     fetchDelete();
 
     // delete notification

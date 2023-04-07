@@ -12,6 +12,7 @@ function InfoModal({ isModalOpen, setIsModalOpen, user }) {
     >
       <Descriptions column={1} >
         <Descriptions.Item><Image height={"12em"} src={avatarImage} /></Descriptions.Item>
+        <Descriptions.Item label="Position">{user.role}</Descriptions.Item>
         <Descriptions.Item label="Name">{user.realName}</Descriptions.Item>
         <Descriptions.Item label="Gender">{user.gender}</Descriptions.Item>
         <Descriptions.Item label="Telephone">{user.phoneNumber}</Descriptions.Item>

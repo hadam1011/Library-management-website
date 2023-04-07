@@ -10,7 +10,7 @@
       "email": "hadam8910@gmail.com",
       "address": "Mộ lao - Hà Đông - Hà Nội",
       "avatar": "../../assets/images/avatar/admin.jpg",
-      "role": "admin"
+      "role": "manager"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "email": "huybeo@gmail.com",
       "address": "Mộ lao - Hà Đông - Hà Nội",
       "avatar": "../../assets/images/avatar/admin.jpg",
-      "role": "user"
+      "role": "staff"
     }
   ],
   "books": [

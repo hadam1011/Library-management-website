@@ -37,7 +37,7 @@ function SideBar() {
 
   // check user's role
   const user = JSON.parse(window.localStorage.getItem("user"));
-  if (user.role === "admin") {
+  if (user.role === "manager") {
     display_items = [...items, getItem("User Management", "4", <UserOutlined />)];
   } else {
     display_items = items;

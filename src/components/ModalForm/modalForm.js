@@ -4,17 +4,11 @@ import { useState } from "react";
 const { Option } = Select;
 const api_url = "http://localhost:3000/user";
 
-function ModalForm({ isModalOpen, setModalOpen }) {
-  const [list, setList] = useState([]);
+function ModalForm({ isModalOpen, setModalOpen, userList }) {
+  const [list, setList] = useState([userList]);
 
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
-
-  const fetchData = async () => {
-    const response = await fetch(api_url);
-    var data = await response.json();
-    setList(data);
-  };
 
   // check user name exist
   const checkExist = (value) => {
@@ -39,7 +33,7 @@ function ModalForm({ isModalOpen, setModalOpen }) {
     }
 
     fetchCreate();
-    fetchData();
+    setList([...list, value]);
 
     // create notification
     api['success']({
@@ -115,7 +109,7 @@ function ModalForm({ isModalOpen, setModalOpen }) {
             <Input.Password />
           </Form.Item>
           <Form.Item
-            label="Role"
+            label="Position"
             name="role"
             rules={[
               {

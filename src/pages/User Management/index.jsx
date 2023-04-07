@@ -2,17 +2,20 @@ import { useEffect, useState } from "react";
 import { Button, Table, Space, notification } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ModalForm from "../../components/ModalForm/modalForm";
+import DrawerDetail from "../../components/DrawerDetail/drawerDetail";
 
 const api_url = "http://localhost:3000/user";
 
 function UserMangement() {
   const [userList, setUserList] = useState([]);
+  const [isDrawerOpen, setDrawerOpen] = useState(false)
   const [isModalOpen, setModalOpen] = useState(false);
+  const [userViewed, setUserViewed] = useState(JSON.parse(window.localStorage.getItem("user")));
 
   const [api, contextHolder] = notification.useNotification();
 
   // call API to get user list
-  async function fetchData() {
+  const fetchData = async () => {
     const response = await fetch(api_url);
     var data = await response.json();
     setUserList(data);
@@ -22,6 +25,7 @@ function UserMangement() {
     fetchData();
   }, []);
 
+  // delete user
   const handleDelete = (id) => {
     var options = {
       method: "DELETE",
@@ -44,6 +48,11 @@ function UserMangement() {
       description: "The data has been successfully deleted",
     });
   };
+
+  const handleClickViewBtn = (record) => {
+    setUserViewed(record);
+    setDrawerOpen(true);
+  }
 
   const columns = [
     {
@@ -79,7 +88,7 @@ function UserMangement() {
       render: (_, record) => {
         return (
           <Space size="small">
-            <Button type="primary">View</Button>
+            <Button type="primary" onClick={() => handleClickViewBtn(record)}>View</Button>
             <Button
               type="primary"
               danger
@@ -108,6 +117,11 @@ function UserMangement() {
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
         userList={userList}
+      />
+      <DrawerDetail
+        isOpen={isDrawerOpen}
+        setOpen={setDrawerOpen}
+        user={userViewed}
       />
       <Table
         rowKey={(record) => record.id}
