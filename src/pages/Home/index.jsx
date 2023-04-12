@@ -41,6 +41,7 @@ function HomePage() {
   const [collapsed, setCollapsed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // log out confirm
   const confirm = () => {
     modal.confirm({
       title: "Confirm",

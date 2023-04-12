@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 import "./login.css";
 
 // const url = "https://hadam1011.github.io/Library-management-website";
@@ -8,6 +9,8 @@ function LoginForm() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [userList, setUserList] = useState([]);
+
+  const [messageApi, contextHolder] = message.useMessage();
 
   let success = false;
   const navigate = useNavigate();
@@ -24,43 +27,52 @@ function LoginForm() {
   const handleBtn = () => {
     userList.forEach((user) => {
       if (!success) {
-        success = user.username === username && user.password === password ? true : false;
+        success =
+          user.username === username && user.password === password
+            ? true
+            : false;
         if (success) {
-          window.localStorage.setItem('user', JSON.stringify(user));
+          window.localStorage.setItem("user", JSON.stringify(user));
         }
-      } 
+      }
     });
 
     if (success) {
-      navigate(`/home-page`);
+      navigate(`/home-page`)
     } else {
-      alert("Sai thong tin hoac mat khau");
+      messageApi.open({
+        type: "error",
+        content: "Sai thông tin đăng nhập hoặc mật khẩu",
+      });
     }
   };
 
   return (
-    <div className="body">
-      <div className="box">
-        <h2 id="login">Hệ thống quản lý thư viện</h2>
-        <input
-          id="login-page"
-          type="text"
-          placeholder="Tên đăng nhập"
-          onChange={(e) => setUserName(e.target.value)}
-          value={username}
-        />
-        <input
-          id="login-page"
-          type="password"
-          placeholder="Mật khẩu"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <button className="login-btn" onClick={handleBtn}>
-          Đăng nhập
-        </button>
+    <>
+      {contextHolder}
+      <div className="body">
+        <div className="box">
+          <h2 id="login">Hệ thống quản lý thư viện</h2>
+          <input
+            id="login-page"
+            type="text"
+            placeholder="Tên đăng nhập"
+            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+          />
+          <input
+            id="login-page"
+            type="password"
+            placeholder="Mật khẩu"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <button className="login-btn" onClick={handleBtn}>
+            Đăng nhập
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
