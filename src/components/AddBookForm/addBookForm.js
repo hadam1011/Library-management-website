@@ -2,9 +2,9 @@ import React from "react";
 import { Button, Form, Input, InputNumber, notification } from "antd";
 
 const { TextArea } = Input;
+const api_url = "https://json-server-api-j3c7.onrender.com/books"
 
 const AddBookForm = () => {
-  const url = "http://localhost:3000/books";
 
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
@@ -19,7 +19,7 @@ const AddBookForm = () => {
     };
 
     async function fetchCreate() {
-      await fetch(url, options)
+      await fetch(api_url, options)
         .then((res) => res.json())
         .then();
     }

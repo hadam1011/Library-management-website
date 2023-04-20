@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Input, Table, Tag, Row, Col, Space } from "antd";
 
-const url = "http://localhost:3000/books";
+const url = "https://json-server-api-j3c7.onrender.com/books";
 
 const columns = [
   {

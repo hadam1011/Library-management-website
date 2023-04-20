@@ -1,18 +1,15 @@
 import { Form, Modal, Input, Radio, Select, notification } from "antd";
-import { useState } from "react";
 
 const { Option } = Select;
-const api_url = "http://localhost:3000/user";
+const api_url = "https://json-server-api-j3c7.onrender.com/user";
 
-function ModalForm({ isModalOpen, setModalOpen, userList }) {
-  const [list, setList] = useState([userList]);
-
+function ModalForm({ isModalOpen, setModalOpen, userList, setUserList }) {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
   // check user name exist
   const checkExist = (value) => {
-    for (const user of list) {
+    for (const user of userList) {
       if (user.username === value) return true;
     }
     return false;
@@ -33,7 +30,7 @@ function ModalForm({ isModalOpen, setModalOpen, userList }) {
     }
 
     fetchCreate();
-    setList([...list, value]);
+    setUserList([...userList, value]);
 
     // create notification
     api['success']({

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button, Table, Space, notification } from "antd";
+import { Button, Table, Space, notification, Popconfirm } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ModalForm from "../../components/ModalForm/modalForm";
 import DrawerDetail from "../../components/DrawerDetail/drawerDetail";
 
-const api_url = "http://localhost:3000/user";
+const api_url = "https://json-server-api-j3c7.onrender.com/user";
 
 function UserMangement() {
   const [userList, setUserList] = useState([]);
@@ -89,13 +89,12 @@ function UserMangement() {
         return (
           <Space size="small">
             <Button type="primary" onClick={() => handleClickViewBtn(record)}>View</Button>
-            <Button
-              type="primary"
-              danger
-              onClick={() => handleDelete(record.id)}
+            <Popconfirm
+              title="Are you sure you want to delete this user?"
+              onConfirm={() => handleDelete(record.id)}
             >
-              Delete
-            </Button>
+              <Button type="primary" danger> Delete </Button>
+            </Popconfirm>
           </Space>
         );
       },
@@ -117,6 +116,7 @@ function UserMangement() {
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
         userList={userList}
+        setUserList={setUserList}
       />
       <DrawerDetail
         isOpen={isDrawerOpen}

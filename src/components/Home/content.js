@@ -15,7 +15,7 @@ import {
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import "./content.css";
 
-const api_url = "http://localhost:3000/books";
+const api_url = "https://json-server-api-j3c7.onrender.com/books";
 
 const EditableCell = ({
   editing,

@@ -4,6 +4,7 @@ import { message } from "antd";
 import "./login.css";
 
 // const url = "https://hadam1011.github.io/Library-management-website";
+const api_url = "https://json-server-api-j3c7.onrender.com/user"
 
 function LoginForm() {
   const [username, setUserName] = useState("");
@@ -17,7 +18,7 @@ function LoginForm() {
 
   // call API to get user list
   useEffect(() => {
-    fetch("http://localhost:3000/user")
+    fetch(api_url)
       .then((res) => res.json())
       .then((list) => {
         setUserList(list);
