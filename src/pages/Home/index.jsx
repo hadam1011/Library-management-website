@@ -1,12 +1,12 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Layout, Avatar, Dropdown, theme, Modal } from "antd";
+import { Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
+import { Layout, Avatar, Dropdown, theme, Modal, message } from "antd";
 import {
   UserOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import SideBar from "../../components/Home/sidebar";
 import Contents from "../../components/Home/content";
@@ -54,6 +54,12 @@ function HomePage() {
     });
   };
 
+  // Welcome message
+  useEffect(() => {
+    if (user !== null)
+      message.info(`Welcome ${user.realName}`);
+  }, []);
+
   function handleClickDropdownItem(item) {
     if (item.key === "1") {
       setIsModalOpen(true);
@@ -62,7 +68,9 @@ function HomePage() {
     }
   }
 
-  return (
+  return user === null ? (
+    <Navigate to="/" />
+  ) : (
     <div className="home-container">
       <InfoModal
         isModalOpen={isModalOpen}

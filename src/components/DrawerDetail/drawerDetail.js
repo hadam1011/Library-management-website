@@ -50,7 +50,7 @@ function DrawerDetail({ isOpen, setOpen, user }) {
               <DescriptionItem title="Address" content={user.address} />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Role" content={user.role} />
+              <DescriptionItem title="Position" content={user.role} />
             </Col>
           </Row>
         </Descriptions>
