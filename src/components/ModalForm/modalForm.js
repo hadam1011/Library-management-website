@@ -116,8 +116,8 @@ function ModalForm({ isModalOpen, setModalOpen, userList, setUserList }) {
             ]}
           >
             <Select allowClear>
-              <Option value="admin">admin</Option>
-              <Option value="user">user</Option>
+              <Option value="admin">manager</Option>
+              <Option value="user">staff</Option>
             </Select>
           </Form.Item>
           <Form.Item
