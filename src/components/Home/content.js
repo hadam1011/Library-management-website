@@ -92,12 +92,10 @@ function Contents() {
       body: JSON.stringify(data),
     };
 
-    async function fetchUpdate() {
-      await fetch(`${api_url}/${id}`, options)
-        .then((res) => res.json())
-        .then(() => {
-          fetchData();
-        });
+    const fetchUpdate = async () => {
+      const res = await fetch(`${api_url}/${id}`, options)
+      const data = await res.json();
+      await fetchData();
     }
     fetchUpdate();
 

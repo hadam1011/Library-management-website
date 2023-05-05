@@ -1,13 +1,14 @@
-import { Drawer, Radio, Form, Input, Select, notification } from "antd";
+import { Drawer, Radio, Form, Input, Select, notification, Button } from "antd";
 import "./drawerDetail.css";
 
 const api_url = "https://json-server-api-j3c7.onrender.com/user";
 
-function DrawerDetail({ isOpen, setOpen, user }) {
+function DrawerDetail({ isOpen, setOpen, user, fetchData }) {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
 
-  const handleUpdate = (data, id) => {
+  const handleUpdate = (data) => {
+    console.log(data);
     var options = {
       method: "PUT",
       headers: {
@@ -16,12 +17,11 @@ function DrawerDetail({ isOpen, setOpen, user }) {
       body: JSON.stringify(data),
     };
 
-    async function fetchUpdate() {
-      await fetch(`${api_url}/${id}`, options)
-        .then((res) => res.json())
-        .then(() => {
-          fetchData();
-        });
+    const fetchUpdate = async () => {
+      const res = await fetch(`${api_url}/${user.id}`, options);
+      const data = await res.json();
+      await setOpen(false);
+      await fetchData();
     }
     fetchUpdate();
 
@@ -47,11 +47,12 @@ function DrawerDetail({ isOpen, setOpen, user }) {
         <Form
           form={form}
           layout="vertical"
-          onSubmit={(data) => handleUpdate(data, user.id)}
+          onFinish={(data) => handleUpdate(data)}
         >
           <Form.Item
             label="User name"
             name="username"
+            initialValue={user.username}
             rules={[
               {
                 required: true,
@@ -59,11 +60,12 @@ function DrawerDetail({ isOpen, setOpen, user }) {
               }
             ]}
           >
-            <Input defaultValue={user.username}/>
+            <Input />
           </Form.Item>
           <Form.Item
             label="Password"
             name="password"
+            initialValue={user.password}
             rules={[
               {
                 required: true,
@@ -71,11 +73,12 @@ function DrawerDetail({ isOpen, setOpen, user }) {
               }
             ]}
           >
-            <Input.Password defaultValue={user.password}/>
+            <Input.Password />
           </Form.Item>
           <Form.Item
             label="Full name"
             name="realName"
+            initialValue={user.realName}
             rules={[
               {
                 required: true,
@@ -83,20 +86,21 @@ function DrawerDetail({ isOpen, setOpen, user }) {
               }
             ]}
           >
-            <Input defaultValue={user.realName}/>
+            <Input />
           </Form.Item>
           <Form.Item
             label="Gender"
             name="gender"
+            initialValue={user.gender}
           >
-            <Radio.Group defaultValue={user.gender}>
+            <Radio.Group>
               <Radio value="male">Male</Radio>
               <Radio value="female">Female</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item
             label="Phone"
-            name="phone"
+            name="phoneNumber"
             initialValue={user.phoneNumber}
             rules={[
               {
@@ -135,15 +139,16 @@ function DrawerDetail({ isOpen, setOpen, user }) {
           </Form.Item>
           <Form.Item
             label="Position"
-            name="position"
+            name="role"
+            initialValue={user.role}
           >
-            <Select defaultValue={user.role}>
-              <Select.Option value="admin">manager</Select.Option>
-              <Select.Option value="user">staff</Select.Option>
+            <Select>
+              <Select.Option value="manager">manager</Select.Option>
+              <Select.Option value="staff">staff</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item>
-            <Button type="submit" htmlType="submit">Save</Button>
+            <Button type="primary" htmlType="submit">Save</Button>
           </Form.Item>
         </Form>
       </Drawer>

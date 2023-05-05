@@ -52,6 +52,7 @@ function ModalForm({ isModalOpen, setModalOpen, userList, setUserList }) {
             .then((value) => {
               handleFormSubmit(value);
               setModalOpen(false);
+              form.resetFields();
             });
         }}
       >
@@ -116,8 +117,8 @@ function ModalForm({ isModalOpen, setModalOpen, userList, setUserList }) {
             ]}
           >
             <Select allowClear>
-              <Option value="admin">manager</Option>
-              <Option value="user">staff</Option>
+              <Option value="manager">manager</Option>
+              <Option value="staff">staff</Option>
             </Select>
           </Form.Item>
           <Form.Item

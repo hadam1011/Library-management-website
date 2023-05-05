@@ -118,17 +118,19 @@ function UserMangement() {
         userList={userList}
         setUserList={setUserList}
       />
-      <DrawerDetail
+      {isDrawerOpen &&
+        <DrawerDetail
         isOpen={isDrawerOpen}
         setOpen={setDrawerOpen}
         user={userViewed}
-      />
+        fetchData={fetchData}
+        />
+      }
       <Table
         rowKey={(record) => record.id}
         bordered
         dataSource={userList}
         columns={columns}
-        rowClassName="editable-row"
         pagination={{
           hideOnSinglePage: true,
         }}
