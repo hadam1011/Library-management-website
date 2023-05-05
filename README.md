@@ -1,3 +1,12 @@
+# Thông tin tài khoản đăng nhập
+### Manger: 
+tài khoản: admin\
+mật khẩu: 123
+
+### Staff: 
+tài khoản: huyne\
+mật khẩu: 123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
