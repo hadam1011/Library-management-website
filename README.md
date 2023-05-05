@@ -1,11 +1,11 @@
 # Thông tin tài khoản đăng nhập
 ### Manger: 
 tài khoản: admin\
-mật khẩu: 123
+mật khẩu: Admin123
 
 ### Staff: 
 tài khoản: huyne\
-mật khẩu: 123
+mật khẩu: Huy123
 
 # Getting Started with Create React App
 
