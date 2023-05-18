@@ -4,7 +4,7 @@ tài khoản: admin\
 mật khẩu: 123
 
 ### Staff: 
-tài khoản: Huynv\
+tài khoản: huyne\
 mật khẩu: 123
 
 # Getting Started with Create React App
